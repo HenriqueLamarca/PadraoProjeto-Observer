@@ -1,5 +1,5 @@
 package padroescomportamentais.observer;
 
 public interface Observer {
-    String update(Pedido pedido);
+    void update(Pedido pedido);
 }

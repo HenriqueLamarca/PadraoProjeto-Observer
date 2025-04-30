@@ -1,10 +1,18 @@
 package padroescomportamentais.observer;
 
 public class Notificacao implements Observer {
+    private String ultimaMensagem;
 
     @Override
-    public String update(Pedido pedido) {
-        return String.format("[Status] Pedido %s atualizado para: %s",
-                pedido.getId(), pedido.getStatus().getClass().getSimpleName());
+    public void update(Pedido pedido) {
+        this.ultimaMensagem = gerarMensagem(pedido);
+    }
+
+    private String gerarMensagem(Pedido pedido) {
+        return "[Status] Pedido " + pedido.getId() + " atualizado para: " + pedido.getStatus();
+    }
+
+    public String getUltimaMensagem() {
+        return ultimaMensagem;
     }
 }
